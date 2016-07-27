@@ -1,0 +1,55 @@
+基于Eclipse构建的项目中，没有build.gradle文件，所以我们需要自己新建一个放到module下面,下面是一个模版：
+
+
+apply plugin: 'android-library'
+ 
+repositories {
+    mavenCentral()
+}
+ 
+android {
+    compileSdkVersion 19
+    buildToolsVersion "20.0.0"
+ 
+    defaultConfig {
+        minSdkVersion 9
+        targetSdkVersion 19
+    }
+ 
+    sourceSets {
+        main {
+            manifest.srcFile 'AndroidManifest.xml'
+            java.srcDirs = ['src']
+            resources.srcDirs = ['src']
+            aidl.srcDirs = ['src']
+            res.srcDirs = ['res']
+            assets.srcDirs = ['assets']
+            jniLibs.srcDirs = ['libs']
+        }
+ 
+    }
+ 
+    lintOptions {
+        abortOnError false
+    }
+ 
+}
+ 
+dependencies {
+    compile fileTree(dir: 'libs', include: ['*.jar'])
+}
+
+
+
+另外,我们导入的仓库可能不是maven中心仓库，或者可能是我们自己搭建的仓库,我们可以自定义仓库地址的,修改build.gradle文件中的repositories就可以了，例如:
+
+
+buildscript {
+    repositories {
+        jcenter()
+        mavenCentral()
+        maven {
+            url "https://oss.sonatype.org/content/repositories/snapshots"
+        }
+    }
+}

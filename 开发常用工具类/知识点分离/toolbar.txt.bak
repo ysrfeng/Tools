@@ -1,0 +1,32 @@
+    <android.support.design.widget.AppBarLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:theme="@style/AppTheme.AppBarOverlay">
+
+            <android.support.v7.widget.Toolbar
+                android:id="@+id/toolbar"
+                android:layout_width="match_parent"
+                android:layout_height="?attr/actionBarSize"
+                android:background="?attr/colorPrimary"
+                app:popupTheme="@style/AppTheme.PopupOverlay" />
+
+        </android.support.design.widget.AppBarLayout>
+【银炮】开发-江西-小江 2015/10/7 10:39:36
+  toolbar = (Toolbar) findViewById(R.id.toolbar);
+        toolbar.setNavigationIcon(R.mipmap.chaxun);
+        setSupportActionBar(toolbar);
+10:39:53
+【银炮】开发-江西-小江 2015/10/7 10:39:53
+xml与activity代码就是这样
+
+【铁炮】开发—上海—云 2015/10/7 10:41:49
+谢谢
+10:41:59
+【银炮】开发-江西-小江 2015/10/7 10:41:59
+能用吗
+
+  
+  
+  toolbar = (Toolbar) findViewById(R.id.toolbar);
+        toolbar.setNavigationIcon(R.mipmap.chaxun);
+        setSupportActionBar(toolbar);

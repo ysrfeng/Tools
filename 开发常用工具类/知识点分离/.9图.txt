@@ -1,0 +1,4 @@
+在build.gradle里添加以下两句,直接添加到buildToolsVersion的下方:
+
+aaptOptions.cruncherEnabled = false    
+aaptOptions.useNewCruncher = false

@@ -1,0 +1,47 @@
+  private final static int PRTMISSION_WRITE_EXTERNAL_STORAGE = 00001;
+
+//判断sdl版本是否大于23
+    private boolean isPermitWriteStorage() {
+
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M) {
+            if (checkSelfPermission(Manifest.permission.WRITE_EXTERNAL_STORAGE)
+                    != PackageManager.PERMISSION_GRANTED) {
+                return false;
+            }
+        }
+        return true;
+    }
+
+
+//添加需要的权限
+
+    @TargetApi(Build.VERSION_CODES.M)
+    @Override
+    protected void onStart() {
+        super.onStart();
+        if (!isPermitWriteStorage()) {
+            requestPermissions(
+                    new String[]{Manifest.permission.WRITE_EXTERNAL_STORAGE},
+                    PRTMISSION_WRITE_EXTERNAL_STORAGE);
+        }
+    }
+
+
+
+    @Override
+    public void onRequestPermissionsResult(int requestCode,
+                                           String permissions[], int[] grantResults) {
+        switch (requestCode) {
+            case PRTMISSION_WRITE_EXTERNAL_STORAGE: {
+                if (grantResults.length == 0
+                        || grantResults[0] != PackageManager.PERMISSION_GRANTED) {
+                    Toast.makeText(this, getString(R.string.UnableAccess),
+                            Toast.LENGTH_SHORT).show();
+                } else {
+                    init();
+                }
+                return;
+            }
+
+        }
+    }

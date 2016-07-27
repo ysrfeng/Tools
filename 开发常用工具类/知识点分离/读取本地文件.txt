@@ -1,0 +1,10 @@
+¶ÁÈ¡ÊÖ»úÍ¼Æ¬£º
+Bitmap bmp=BitmapFactroy.decodeFile("/sdcard/xxx.png");
+imageview.setImageBitmap(bmp);
+¶ÁÈ¡ÍøÂçÍ¼Æ¬£º
+URL url=new URL(Í¼Æ¬ÍøÖ·);
+URLConection conn=url.openConnection();
+conn.connect();
+InputStream is=conn.getInputStream();
+Bitmap bmp=BitmapFactory.decodeSteam(is);
+imageview.setImageBitmap(bm);

@@ -1,0 +1,41 @@
+public class MainActivity extends Activity {
+	private ImageView iv;
+	int img_[] = new int[] { R.drawable.img_1, R.drawable.img_2,
+			R.drawable.img_3, R.drawable.img_4, R.drawable.img_5,
+			R.drawable.img_6, R.drawable.img_7, R.drawable.img_8,
+			R.drawable.img_9, };
+	int count = 0;
+
+	@Override
+	protected void onCreate(Bundle savedInstanceState) {
+		super.onCreate(savedInstanceState);
+		setContentView(R.layout.activity_main);
+
+		final int width = this.getWindowManager().getDefaultDisplay()
+				.getWidth();
+		iv = (ImageView) findViewById(R.id.imageView1);
+		iv.setOnTouchListener(new View.OnTouchListener() {
+			@Override
+			public boolean onTouch(View v, MotionEvent event) {
+				ImageView view = (ImageView) v;
+				int x = (int) event.getX();
+				if (x >= (width / 2)) {
+					if (count == 8) {
+						count = -1;
+					}
+					view.setImageResource(img_[++count]);
+				} else {
+					if (x < (width / 2)) {
+						if (count == 0) {
+							count = 9;
+						}
+						view.setImageResource(img_[--count]);
+					}
+				}
+				return false;
+			}
+		});
+
+	}
+
+}
