@@ -2,9 +2,11 @@ android {
     compileSdkVersion 18
     buildToolsVersion "24.0.0"
 
-//ºöÂÔ³åÍ»
+//ºöÂÔjar³åÍ»
     packagingOptions{
-        exclude"META-INF/NOTICE"
+         exclude"META-INF/NOTICE"
+        exclude"META-INF/LICENSE"
+        exclude"META-INF/LGPL2.1"
     }
 
     defaultConfig {
