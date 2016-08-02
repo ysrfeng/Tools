@@ -1,0 +1,1 @@
+Secure.getString(getApplication().getContentResolver(), Secure.ANDROID_ID);
