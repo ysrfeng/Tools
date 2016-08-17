@@ -1,0 +1,6 @@
+inputText.setInputType(InputType.TYPE_CLASS_TEXT|InputType.TYPE_TEXT_VARIATION_PASSWORD);
+
+
+
+必须设置InputType.TYPE_CLASS_TEXT
+否则不能设置密码输入格式

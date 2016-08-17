@@ -1,0 +1,17 @@
+static void Main(string[] args)
+{
+    string factString = "中华人民共和国";
+    byte[] myByte;
+    string Base64Str;
+    //先把字符串按照utf-8的编码转换成byte[]
+    Encoding myEncoding = Encoding.GetEncoding("utf-8");
+    //myByte中获得这样的字节数组：228,184,173,229,141,142,228,186,186,230,176,145,229,133,177,229,146,140,229,155,189
+    myByte = myEncoding.GetBytes(factString);
+    //把byte[]转成base64编码,这个例子形成的base64编码的unicode等价字符串为:"5Lit5Y2O5Lq65rCR5YWx5ZKM5Zu9"
+    Base64Str = Convert.ToBase64String(myByte);
+    //再从base64编码转成byte[]，又恢复为字节数组：228,184,173,229,141,142,228,186,186,230,176,145,229,133,177,229,146,140,229,155,189
+    myByte = Convert.FromBase64String(Base64Str);
+    //用同一个Encoding对象把byte[]转成字符串："中华人民共和国"
+    factString = myEncoding.GetString(myByte);
+    Console.WriteLine(factString);
+}
