@@ -1,0 +1,53 @@
+SQL常用命令使用方法：
+(1) 数据记录筛选：
+sql="select * from 数据表 where 字段名=字段值 order by 字段名 [desc]"
+sql="select * from 数据表 where 字段名 like '%字段值%' order by 字段名 [desc]"
+sql="select top 10 * from 数据表 where 字段名 order by 字段名 [desc]"
+sql="select * from 数据表 where 字段名 in ('值1','值2','值3')"
+sql="select * from 数据表 where 字段名 between 值1 and 值2"
+
+(2) 更新数据记录：
+sql="update 数据表 set 字段名=字段值 where 条件表达式"
+sql="update 数据表 set 字段1=值1,字段2=值2 …… 字段n=值n where 条件表达式"
+
+(3) 删除数据记录：
+sql="delete from 数据表 where 条件表达式"
+sql="delete from 数据表" (将数据表所有记录删除)
+
+(4) 添加数据记录：
+sql="insert into 数据表 (字段1,字段2,字段3 …) values (值1,值2,值3 …)"
+sql="insert into 目标数据表 select * from 源数据表" (把源数据表的记录添加到目标数据表)
+
+(5) 数据记录统计函数：
+AVG(字段名) 得出一个表格栏平均值
+COUNT(*&brvbar;字段名) 对数据行数的统计或对某一栏有值的数据行数统计
+MAX(字段名) 取得一个表格栏最大的值
+MIN(字段名) 取得一个表格栏最小的值
+SUM(字段名) 把数据栏的值相加
+引用以上函数的方法：
+sql="select sum(字段名) as 别名 from 数据表 where 条件表达式"
+set rs=conn.excute(sql)
+用 rs("别名") 获取统的计值，其它函数运用同上。
+
+(5) 数据表的建立和删除：
+CREATE TABLE 数据表名称(字段1 类型1(长度),字段2 类型2(长度) …… )
+例：CREATE TABLE tab01(name varchar(50),datetime default now())
+
+DROP TABLE 数据表名称 (永久性删除一个数据表)
+
+
+2. 记录集对象的方法：
+rs.movenext 将记录指针从当前的位置向下移一行
+rs.moveprevious 将记录指针从当前的位置向上移一行
+rs.movefirst 将记录指针移到数据表第一行
+rs.movelast 将记录指针移到数据表最后一行
+rs.absoluteposition=N 将记录指针移到数据表第N行
+rs.absolutepage=N 将记录指针移到第N页的第一行
+rs.pagesize=N 设置每页为N条记录
+rs.pagecount 根据 pagesize 的设置返回总页数
+rs.recordcount 返回记录总数
+rs.bof 返回记录指针是否超出数据表首端，true表示是，false为否
+rs.eof 返回记录指针是否超出数据表末端，true表示是，false为否
+rs.delete 删除当前记录，但记录指针不会向下移动
+rs.addnew 添加记录到数据表末端
+rs.update 更新数据表记录

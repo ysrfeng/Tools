@@ -1,0 +1,7 @@
+	File file = new File("C://msg.txt");
+			try {
+				PrintStream ps = new PrintStream(new FileOutputStream(file));
+				ps.println(msg);
+			} catch (FileNotFoundException e) {
+				e.printStackTrace();
+			}

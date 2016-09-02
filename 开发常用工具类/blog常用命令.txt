@@ -1,0 +1,74 @@
+$ git config --global user.name "myfengnull"
+
+
+$ git config --global user.email "ysr200808@163.com"
+
+
+$ ssh-keygen -t rsa -C "ysr200808@163.com"
+
+
+$ ssh -T git@github.com
+返回Hi MyfengNull! You've successfully authenticated, but GitHub does not provide shell access.
+表示成功！
+
+$ ruby dk.rb init
+
+$ vi config.yml
+
+vi命令行模式
+按一下键盘上的"i"就可以编辑
+点击一下键盘上的"ESC",然后输入":wq!"这样就将文本保存了
+不想保存就按一下键盘上的"ESC",输入":q!"
+不确定是否成功.可以通过"cat filename" 命令来查看.
+
+$ ruby dk.rb install
+
+$git clone git://github.com/imathis/octopress.git octopress
+
+$cd octopress
+
+$gem sources --add http://gems.ruby-china.org/
+
+$gem sources--remove https://rubygems.org/
+
+$gem install bundler
+
+$ bundle install
+
+$ rake install
+
+起服务
+$ rake preview
+
+新建博客
+$ rake  new_post["title"]
+
+新建页面
+$ rake new_page[book]
+$ rake new_page[book.html]
+
+
+$ rake setup_github_pages
+
+$ rake deploy
+
+$ git add .
+
+$ git commit -m "first"
+
+$ git push origin source
+
+
+https://curl.haxx.se/ca/cacert.pem
+gem install bundler
+http://gems.ruby-china.org/       腾讯的是http
+http://octopress.org/docs/setup/
+https://ruby.taobao.org/
+
+http://gems.ruby-china.org/
+$ gem sources --add https://ruby.taobao.org/ --remove https://rubygems.org/
+$ gem sources -l
+*** CURRENT SOURCES ***
+
+
+rake generate
