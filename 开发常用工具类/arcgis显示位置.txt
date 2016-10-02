@@ -1,0 +1,12 @@
+GraphicsLayer graphicsLayer = new GraphicsLayer();
+mapView.addLayer(graphicsLayer);
+
+Point  loc= new Point(120.8664698600769,36.14800174970085); //获取的定位
+SpatialReference sr4326 = SpatialReference.create(SpatialReference.WKID_WGS84);
+Point p = (Point)GeometryEngine.project(loc, sr4326, mapView.getSpatialReference()); //转为地图坐标
+
+Drawable drawable = Drawable.createFromPath("/mnt/sdcard/lcon.png"); //Icon.png 是个图标
+PictureMarkerSymbol picSymbol = new PictureMarkerSymbol(drawable);
+
+Graphic g= new Graphic(p, picSymbol);
+graphicsLayer.addGraphic(g);

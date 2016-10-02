@@ -1,0 +1,13 @@
+　运用正则表达式分割就可以了，测试代码
+　　public class Test {
+　　public static void main(String[] args) {
+　　String str="how|are|you";
+　　String[] ary = str.split("\\|");
+　　String s1 = ary[0];
+　　String s2 = ary[1];
+　　String s3 = ary[2];
+　　System.out.println("s1 = " + s1);
+　　System.out.println("s2 = " + s2);
+　　System.out.println("s3 = " + s3);
+　　}
+　　} 

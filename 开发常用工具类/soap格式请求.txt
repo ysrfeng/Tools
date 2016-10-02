@@ -1,0 +1,25 @@
+              PostMethod postMethod = new PostMethod(url);	
+byte[] b = params.getBytes("utf-8");     //params :请求报文内容
+InputStream is   = new ByteArrayInputStream(b,0,b.length);
+RequestEntity re = 
+                              new InputStreamRequestEntity(is,b.length,"application/soap+xml; charset=utf-8");
+
+postMethod.setRequestEntity(re);	
+postMethod.addRequestHeader("SOAPAction", soap);
+postMethod.addRequestHeader("Content-type", "text/xml; charset=utf-8");	
+
+HttpClient httpClient = new HttpClient();
+httpClient.executeMethod(postMethod);
+input = postMethod.getResponseBodyAsStream();
+
+                       然后对 input 用dom4j解析
+
+                SAXReader reader = new SAXReader();
+Document document = null;
+try{
+Reader reader1 = new InputStreamReader(is,"utf-8");
+document = reader.read(reader1);
+}catch(Exception e){
+log.error("输入流出错");
+}
+                String xml = document.asXML();

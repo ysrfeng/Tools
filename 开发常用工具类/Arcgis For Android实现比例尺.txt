@@ -1,0 +1,17 @@
+public void getScaleText(double scale) {
+    scale /= 100;//转成厘米：米
+    String formatStr = null;
+    if(scale >= 1000){
+        scale /= 1000;
+        formatStr = "%1$.1f公里";
+    }else if(scale >= 1 ){
+        formatStr = "%1$.1f米";
+    }else if(scale >= 0.1){
+        scale *= 10;
+        formatStr = "%1$.1f分米";
+    }else{
+        scale *= 100;
+        formatStr = "%1$.1f厘米";
+    }   
+    return String.format(formatStr, (float)scale);
+}

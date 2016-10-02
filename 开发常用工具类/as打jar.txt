@@ -1,0 +1,17 @@
+library的build文件加入
+
+task makeJar(type: Copy) {
+    delete 'build/libs/mysdk.jar'
+    from('build/intermediates/bundles/release/')
+    into('build/libs/')
+    include('classes.jar')
+    rename ('classes.jar', 'mysdk.jar')
+}
+
+makeJar.dependsOn(build)
+
+
+
+
+//在终端执行生成JAR包
+ gradlew makeJar
