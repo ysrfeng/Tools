@@ -70,5 +70,11 @@ public class HttpUtils {
 		return null;
 
 	}
-
+	/**
+在相应的module下的build.gradle中加入：
+android {
+    useLibrary 'org.apache.http.legacy'
+}
+注
+*/
 }
