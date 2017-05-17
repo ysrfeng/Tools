@@ -1,0 +1,6 @@
+mysql -u root -p
+select user,host from user; 
+use mysql;
+select user,host from user;
+grant all privileges on *.* to 'root'@'%' identified by '123abc' with grant option; 
+flush privileges;
