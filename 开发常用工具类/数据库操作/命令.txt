@@ -40,3 +40,7 @@ drop table 表名；
 delete from 表名; 
 8、显示表中的记录： 
 select * from 表名;
+9、mysql退出三种方法：
+mysql > exit;
+mysql > quit;
+mysql > \q;
