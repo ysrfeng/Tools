@@ -1,0 +1,4 @@
+ 查看RSA
+keytool -printcert -file  CERT.RSA
+查看密钥
+keytool -list -v -kerstore []
