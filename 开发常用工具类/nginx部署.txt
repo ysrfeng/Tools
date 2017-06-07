@@ -1,0 +1,18 @@
+http://www.cnblogs.com/lipcblog/p/6824145.html
+
+一、首先就是先下载nginx-rtmp-module
+ git clone https://github.com/arut/nginx-rtmp-module.git  
+二、安装：nginx
+   wget http://nginx.org/download/nginx-1.8.1.tar.gz  
+    tar -zxvf nginx-1.8.1.tar.gz  
+    cd nginx-1.8.1  
+    ./configure --prefix=/usr/local/nginx  --add-module=../nginx-rtmp-module  --with-http_ssl_module    
+    make && make install  
+
+
+
+然后启动nginx:
+
+ 
+
+/usr/local/nginx/sbin/nginx
