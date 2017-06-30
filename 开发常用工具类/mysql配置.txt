@@ -1,0 +1,51 @@
+---
+layout: post
+title: "Centos7安装Mysql"
+date: 2015-10-31 19:24:35 +0800
+comments: true
+categories: 
+---
+# 欢迎来到风的博客
+### Centos7安装Mysql
+
+1、配置YUM源
+ **下载mysql源安装包**
+shell> wget http://dev.mysql.com/get/mysql57-community-release-el7-8.noarch.rpm
+**安装mysql源**
+shell> yum localinstall mysql57-community-release-el7-8.noarch.rpm
+**检查mysql源是否安装成功**
+shell> yum repolist enabled | grep "mysql.*-community.*"
+2、安装MySQL
+shell> yum install mysql-community-server
+3、启动MySQL服务
+shell> systemctl start mysqld
+4、开机启动
+shell> systemctl enable mysqld
+shell> systemctl daemon-reload
+5、修改root默认密码
+shell> grep 'temporary password' /var/log/mysqld.log
+shell> mysql -uroot -p
+mysql> ALTER USER 'root'@'localhost' IDENTIFIED BY 'MyNewPass4!'; 
+或者
+mysql> set password for 'root'@'localhost'=password('MyNewPass4!'); 
+
+6.设置ip登录
+检查root配置
+ root用户登录
+$ mysql -u root -p
+切换到mysql这个数据库
+mysql> use mysql;
+指定密码策略
+validate_password_policy=0
+set global validate_password_policy=0;
+修改密码
+update mysql.user set authentication_string=PASSWORD('ysrfeng-001') where User='root';
+给用户授权
+mysql> grant all privileges on *.* to 'root'@'%' identified by '123456' with grant option;
+使配置生效
+mysql> flush privileges;
+
+http://www.cnblogs.com/ivictor/p/5142809.html
+
+
+
