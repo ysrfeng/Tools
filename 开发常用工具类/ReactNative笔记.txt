@@ -1,0 +1,8 @@
+React Native 问题解决
+1.真机调试报错：unable to load script from assets 'index.android bundle'
+解决方法
+第一步：在  android/app/src/main 目录下创建一个  assets空文件夹
+第二步：主目录非android下执行下面这段命令
+react-native bundle --platform android --dev false --entry-file index.android.js --bundle-output android/app/src/main/assets/index.android.bundle --assets-dest android/app/src/main/res
+第三步:react-native run-android
+执行后报错使用greadlew clean再次执行react-native run-android
