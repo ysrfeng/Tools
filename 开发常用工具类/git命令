@@ -1,0 +1,2 @@
+#初次提交项目到仓库，冲突问题
+git pull origin master --allow-unrelated-histories" 
