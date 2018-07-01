@@ -1,0 +1,14 @@
+  //apk命名3.0.1版本方式
+    android.applicationVariants.all { variant ->
+        def runTasks = gradle.startParameter.taskNames
+        def apkFileName = "Youyun_test_v${defaultConfig.versionName}_${releaseTime()}.apk"
+        variant.outputs.each { output ->
+            variant.outputs.all {
+                if (Consts.buildTypeRelease in runTasks ){
+                    apkFileName = "Youyun_online_v${defaultConfig.versionName}_${releaseTime()}.apk"
+                }
+                outputFileName = apkFileName
+            }
+        }
+
+    }
